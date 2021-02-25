@@ -1,0 +1,233 @@
+TypeError: Cannot read property 'apply' of undefined
+value
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/chart.js/dist/Chart.js:3590
+  3587 | 		enumerable: false,
+  3588 | 		value: function() {
+  3589 | 			var args = Array.prototype.slice.call(arguments);
+> 3590 | 			var res = base.apply(this, args);
+       | ^  3591 | 
+  3592 | 			helpers$1.each(array._chartjs.listeners, function(object) {
+  3593 | 				if (typeof object[method] === 'function') {
+View compiled
+(anonymous function)
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-chartjs-2/es/index.js:252
+  249 | if (current && current.type === next.type && next.data) {
+  250 |   // Be robust to no data. Relevant for other update mechanisms as in chartjs-plugin-streaming.
+  251 |   // The data array must be edited in place. As chart.js adds listeners to it.
+> 252 |   current.data.splice(next.data.length);
+      | ^  253 |   next.data.forEach(function (point, pid) {
+  254 |     current.data[pid] = next.data[pid];
+  255 |   });
+View compiled
+ChartComponent.updateChart
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-chartjs-2/es/index.js:246
+  243 | var currentDatasetsIndexed = (0, _keyBy["default"])(currentDatasets, this.props.datasetKeyProvider); // We can safely replace the dataset array, as long as we retain the _meta property
+  244 | // on each dataset.
+  245 | 
+> 246 | this.chartInstance.config.data.datasets = nextDatasets.map(function (next) {
+      | ^  247 |   var current = currentDatasetsIndexed[_this3.props.datasetKeyProvider(next)];
+  248 | 
+  249 |   if (current && current.type === next.type && next.data) {
+View compiled
+ChartComponent.componentDidUpdate
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-chartjs-2/es/index.js:109
+  106 |       return;
+  107 |     }
+  108 | 
+> 109 |     this.updateChart();
+      | ^  110 |   }
+  111 | }, {
+  112 |   key: "shouldComponentUpdate",
+View compiled
+commitLifeCycles
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:20684
+  20681 |     }
+  20682 | 
+  20683 |     {
+> 20684 |       instance.componentDidUpdate(prevProps, prevState, instance.__reactInternalSnapshotBeforeUpdate);
+        | ^  20685 |     }
+  20686 |   }
+  20687 | } // TODO: I think this is now always non-null by the time it reaches the
+View compiled
+commitLayoutEffects
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:23426
+  23423 | 
+  23424 | if (flags & (Update | Callback)) {
+  23425 |   var current = nextEffect.alternate;
+> 23426 |   commitLifeCycles(root, current, nextEffect);
+        | ^  23427 | }
+  23428 | 
+  23429 | {
+View compiled
+HTMLUnknownElement.callCallback
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:3945
+  3942 | function callCallback() {
+  3943 |   didCall = true;
+  3944 |   restoreAfterDispatch();
+> 3945 |   func.apply(context, funcArgs);
+       | ^  3946 |   didError = false;
+  3947 | } // Create a global error event handler. We use this to capture the value
+  3948 | // that was thrown. It's possible that this error handler will fire more
+View compiled
+invokeGuardedCallbackDev
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:3994
+  3991 | // errors, it will trigger our global error handler.
+  3992 | 
+  3993 | evt.initEvent(evtType, false, false);
+> 3994 | fakeNode.dispatchEvent(evt);
+       | ^  3995 | 
+  3996 | if (windowEventDescriptor) {
+  3997 |   Object.defineProperty(window, 'event', windowEventDescriptor);
+View compiled
+invokeGuardedCallback
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:4056
+  4053 | function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
+  4054 |   hasError = false;
+  4055 |   caughtError = null;
+> 4056 |   invokeGuardedCallbackImpl$1.apply(reporter, arguments);
+  4057 | }
+  4058 | /**
+  4059 |  * Same as invokeGuardedCallback, but instead of returning an error, it stores
+View compiled
+commitRootImpl
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:23151
+  23148 | 
+  23149 | do {
+  23150 |   {
+> 23151 |     invokeGuardedCallback(null, commitLayoutEffects, null, root, lanes);
+        | ^  23152 | 
+  23153 |     if (hasCaughtError()) {
+  23154 |       if (!(nextEffect !== null)) {
+View compiled
+unstable_runWithPriority
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/scheduler/cjs/scheduler.development.js:646
+  643 | currentPriorityLevel = priorityLevel;
+  644 | 
+  645 | try {
+> 646 |   return eventHandler();
+      | ^  647 | } finally {
+  648 |   currentPriorityLevel = previousPriorityLevel;
+  649 | }
+View compiled
+runWithPriority$1
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:11276
+  11273 | 
+  11274 | function runWithPriority$1(reactPriorityLevel, fn) {
+  11275 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+> 11276 |   return Scheduler_runWithPriority(priorityLevel, fn);
+  11277 | }
+  11278 | function scheduleCallback(reactPriorityLevel, callback, options) {
+  11279 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+View compiled
+commitRoot
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:22990
+  22987 | 
+  22988 | function commitRoot(root) {
+  22989 |   var renderPriorityLevel = getCurrentPriorityLevel();
+> 22990 |   runWithPriority$1(ImmediatePriority$1, commitRootImpl.bind(null, root, renderPriorityLevel));
+  22991 |   return null;
+  22992 | }
+  22993 | 
+View compiled
+performSyncWorkOnRoot
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:22329
+  22326 | var finishedWork = root.current.alternate;
+  22327 | root.finishedWork = finishedWork;
+  22328 | root.finishedLanes = lanes;
+> 22329 | commitRoot(root); // Before exiting, make sure there's a callback scheduled for the next
+        | ^  22330 | // pending level.
+  22331 | 
+  22332 | ensureRootIsScheduled(root, now());
+View compiled
+(anonymous function)
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:11327
+  11324 |     var callback = _queue[i];
+  11325 | 
+  11326 |     do {
+> 11327 |       callback = callback(_isSync2);
+        | ^  11328 |     } while (callback !== null);
+  11329 |   }
+  11330 | });
+View compiled
+unstable_runWithPriority
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/scheduler/cjs/scheduler.development.js:646
+  643 | currentPriorityLevel = priorityLevel;
+  644 | 
+  645 | try {
+> 646 |   return eventHandler();
+      | ^  647 | } finally {
+  648 |   currentPriorityLevel = previousPriorityLevel;
+  649 | }
+View compiled
+runWithPriority$1
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:11276
+  11273 | 
+  11274 | function runWithPriority$1(reactPriorityLevel, fn) {
+  11275 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+> 11276 |   return Scheduler_runWithPriority(priorityLevel, fn);
+  11277 | }
+  11278 | function scheduleCallback(reactPriorityLevel, callback, options) {
+  11279 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+View compiled
+flushSyncCallbackQueueImpl
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:11322
+  11319 | try {
+  11320 |   var _isSync2 = true;
+  11321 |   var _queue = syncQueue;
+> 11322 |   runWithPriority$1(ImmediatePriority$1, function () {
+        | ^  11323 |     for (; i < _queue.length; i++) {
+  11324 |       var callback = _queue[i];
+  11325 | 
+View compiled
+flushSyncCallbackQueue
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:11309
+  11306 |     Scheduler_cancelCallback(node);
+  11307 |   }
+  11308 | 
+> 11309 |   flushSyncCallbackQueueImpl();
+  11310 | }
+  11311 | 
+  11312 | function flushSyncCallbackQueueImpl() {
+View compiled
+scheduleUpdateOnFiber
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:21893
+  21890 |       // without immediately flushing it. We only do this for user-initiated
+  21891 |       // updates, to preserve historical behavior of legacy mode.
+  21892 |       resetRenderTimer();
+> 21893 |       flushSyncCallbackQueue();
+        | ^  21894 |     }
+  21895 |   }
+  21896 | } else {
+View compiled
+dispatchAction
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/node_modules/react-dom/cjs/react-dom.development.js:16139
+  16136 |       }
+  16137 |     }
+  16138 | 
+> 16139 |     scheduleUpdateOnFiber(fiber, lane, eventTime);
+  16140 |   }
+  16141 | }
+  16142 | 
+View compiled
+(anonymous function)
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/src/LineGraph.js:78
+  75 |   .then(response => response.json())
+  76 |   .then(data => {
+  77 |     const chartData = buildChartData(data, 'cases');
+> 78 |     setData(chartData);
+     | ^  79 |   })
+  80 | }
+  81 | fetchData();
+View compiled
+async fetchData
+D:/React_project/app8_COVID-19 Tracker/covid-19-tracker/src/LineGraph.js:74
+  71 | 
+  72 |  useEffect(() => {
+  73 |    const fetchData = async () => {
+> 74 |      await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120 ')
+     | ^  75 |      .then(response => response.json())
+  76 |      .then(data => {
+  77 |        const chartData = buildChartData(data, 'cases');
+View compiled
+This screen is visible only in development. It will not appear if the app crashes in production.
+Open your browser’s developer console to further inspect this error.  Click the 'X' or hit ESC to dismiss this message.

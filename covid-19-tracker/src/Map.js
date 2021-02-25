@@ -1,11 +1,11 @@
 import React from 'react';
-import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet'
+import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet';
+import './Map.css';
 
-//import { MapContainer,Tilelayer } from 'react-leaflet'
-function Map() {
+function Map({center, zoom}) {
   return (
     <div className='map'>
-      <LeafletMap >
+      <LeafletMap center={center} zoom={zoom}>
         <TileLayer
           url='https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -16,3 +16,7 @@ function Map() {
 }
 
 export default Map;
+
+
+
+//https://github.com/PaulLeCam/react-leaflet/issues/491

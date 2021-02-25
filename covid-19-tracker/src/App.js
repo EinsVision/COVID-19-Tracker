@@ -79,19 +79,19 @@ function App() {
           <InfoBox
             title='Coronavirus Cases' 
             cases={countryInfo.todayCases}
-            total={2000}
+            total={countryInfo.cases}
           />
 
           <InfoBox
-            title='Recovered' 
+            title='Today Recovered' 
             cases={countryInfo.todayRecovered}
-            total={3000}
+            total={countryInfo.recovered}
           />
 
           <InfoBox
             title='Deaths' 
             cases={countryInfo.todayDeaths}
-            total={10}
+            total={countryInfo.deaths}
           />
           
         </div>

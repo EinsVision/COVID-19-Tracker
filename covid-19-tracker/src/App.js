@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState('worldwide');
 
   useEffect(() => {
     // async -> send a request, wait for it, do something
@@ -27,6 +28,11 @@ function App() {
     getCountriesData();
   }, []);
 
+  const onCountryChange = async (event) => {
+    const countryCode = event.target.value;
+    setCountry(countryCode);
+  }
+
   return (
     <div className="app">
       <div className='app__header'>
@@ -34,17 +40,17 @@ function App() {
         <FormControl className='app__dropdown'>
           <Select
             variant='outlined'
-            value='abc'
+            value={country}
+            onChange={onCountryChange}
           >
+            {/* list of worldwide */}
+            <MenuItem value='worldwide'>Worldwide</MenuItem>
             {
               countries.map(country => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>    
               ))
             }
-            <MenuItem value='worldwide'>Worldwide</MenuItem>
-            <MenuItem value='worldwide'>Option two</MenuItem>
-            <MenuItem value='worldwide'>Option three</MenuItem>
-            <MenuItem value='worldwide'>Option four</MenuItem>
+            
           </Select>
         </FormControl>
       </div>

@@ -17,6 +17,7 @@ body{
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between;
+  color: red;
 }
 
 .app__left{

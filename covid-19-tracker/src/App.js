@@ -47,7 +47,9 @@ function App() {
       // all of the data from the country response
       setCountryInfo(data);
     })
-  }
+  };
+
+  console.log(countryInfo);
 
   return (
     <div className="app">
@@ -76,19 +78,19 @@ function App() {
           {/* InfoBoxs title='Coronavirus cases' */}
           <InfoBox
             title='Coronavirus Cases' 
-            cases={123}
+            cases={countryInfo.todayCases}
             total={2000}
           />
 
           <InfoBox
             title='Recovered' 
-            cases={123}
+            cases={countryInfo.todayRecovered}
             total={3000}
           />
 
           <InfoBox
             title='Deaths' 
-            cases={123}
+            cases={countryInfo.todayDeaths}
             total={10}
           />
           

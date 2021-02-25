@@ -2,6 +2,16 @@
   margin: 0;
 }
 
+.app{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+body{
+  background-color: #f5f6fa;
+}
+
 .app__header{
   display: flex;
   align-items: center;
@@ -11,5 +21,11 @@
 
 .app__stats{
   display: flex;
+  justify-content: space-between;
 }
 
+@media (max-width: 990x){
+  .app{
+    flex-direction: column;
+  }
+}

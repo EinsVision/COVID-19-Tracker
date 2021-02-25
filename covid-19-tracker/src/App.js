@@ -110,8 +110,8 @@ function App() {
           
         </div>
        
-        {/* Map */}
         <Map />
+        
       </div>
       <Card className='app__right'>
         <CardContent>

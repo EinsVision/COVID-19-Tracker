@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
+import { sortData } from './util';
 
 // https://disease.sh/v3/covid-19/countries (data)
 function App() {
@@ -33,7 +34,9 @@ function App() {
             value: country.countryInfo.iso2 // UK, USA, Korea
           }
         ));
-        setTableData(data);
+
+        const sortedData = sortData(data);
+        setTableData(sortedData);
         setCountries(countries);
       })
     };

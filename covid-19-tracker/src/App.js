@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
-import { sortData } from './util';
+import { prettyPrintStat, sortData } from './util';
 import LineGraph from './LineGraph';
 import 'leaflet/dist/leaflet.css';
 
@@ -100,19 +100,19 @@ function App() {
           {/* InfoBoxs title='Coronavirus cases' */}
           <InfoBox
             title='Coronavirus Cases' 
-            cases={countryInfo.todayCases}
+            cases={prettyPrintStat(countryInfo.todayCases)}
             total={countryInfo.cases}
           />
 
           <InfoBox
             title='Today Recovered' 
-            cases={countryInfo.todayRecovered}
+            cases={prettyPrintStat(countryInfo.todayRecovered)}
             total={countryInfo.recovered}
           />
 
           <InfoBox
             title='Deaths' 
-            cases={countryInfo.todayDeaths}
+            cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={countryInfo.deaths}
           />
           

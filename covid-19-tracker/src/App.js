@@ -1,6 +1,7 @@
 import './App.css';
 import { FormControl, MenuItem, Select } from '@material-ui/core';
 import { useEffect, useState } from 'react';
+import InfoBox from './InfoBox';
 
 // https://disease.sh/v3/covid-19/countries (data)
 function App() {
@@ -55,13 +56,28 @@ function App() {
         </FormControl>
       </div>
       
-      {/* Header */}
-      {/* Title + Select input dropdown field */}
+      <div className='app__stats'>
+        {/* InfoBoxs title='Coronavirus cases' */}
+        <InfoBox
+          title='Coronavirus Cases' 
+          cases={123}
+          total={2000}
+        />
 
-      {/* InfoBoxs */}
-      {/* InfoBoxs */}
-      {/* InfoBoxs */}
+        <InfoBox
+          title='Recovered' 
+          cases={123}
+          total={3000}
+        />
 
+        <InfoBox
+          title='Deaths' 
+          cases={123}
+          total={10}
+        />
+        
+      </div>
+      
       {/* Table */}
       {/* Graph */}
 
